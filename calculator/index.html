@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calcio - an offline scientific calculator with matrices, graphing, statistics, equations, calculus tools and a study helper. Built for the CodeAlpha internship.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Calcio | Scientific Calculator</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <header class="app-head">
+      <h1>Calcio</h1>
+      <p class="sub">Scientific calculator &amp; study companion</p>
+    </header>
+
+    <div class="tb">
+      <span class="ths">
+        <button class="btn g" id="thL" type="button">☀️ Light</button>
+        <button class="btn g" id="thD" type="button">🌙 Dark</button>
+      </span>
+      <input type="color" id="acc" value="#2563eb" title="Accent colour" aria-label="Accent colour">
+      <button class="btn g" id="histBtn" type="button" aria-expanded="false" aria-controls="hp">🕘 History</button>
+    </div>
+
+    <!-- Searchable calculation history -->
+    <div class="card hide" id="hp">
+      <input class="f" id="hs" type="search" placeholder="Search history..." aria-label="Search calculation history">
+      <div id="hl" class="hist-list"></div>
+    </div>
+
+    <div class="tabs" id="tabs" role="tablist" aria-label="Calculator modes"></div>
+
+    <!-- ============================= Calculator ============================= -->
+    <section id="p-calc" class="card" role="tabpanel" aria-label="Calculator">
+      <div class="bar">
+        <button class="btn g" id="angle" type="button" aria-label="Toggle degrees or radians">DEG</button>
+        <span id="ans">Ans = 0</span>
+        <span class="bar-hint">Enter = calculate</span>
+      </div>
+
+      <div class="lcd">
+        <input id="ex" placeholder="sin(30)+√(16)" autocomplete="off" spellcheck="false" aria-label="Expression">
+        <div class="res" id="rs" aria-live="polite">0</div>
+      </div>
+
+      <div class="keys" id="keys"></div>
+
+      <div class="row">
+        <button class="btn g" id="sd" type="button">S⇔D (fraction)</button>
+        <small class="mu">Tap →M / →X / →Y to store Ans in a variable.</small>
+      </div>
+    </section>
+
+    <!-- ============================== Matrix =============================== -->
+    <section id="p-mat" class="card hide" role="tabpanel" aria-label="Matrix">
+      <div class="row">
+        <b>A</b>
+        <select id="ar" aria-label="Matrix A rows"></select>
+        ×
+        <select id="ac" aria-label="Matrix A columns"></select>
+        <b class="gap">B</b>
+        <select id="br" aria-label="Matrix B rows"></select>
+        ×
+        <select id="bc" aria-label="Matrix B columns"></select>
+      </div>
+
+      <div class="row">
+        <div id="gA"></div>
+        <div id="gB"></div>
+      </div>
+
+      <div class="row" id="mops"></div>
+      <div id="mout"></div>
+    </section>
+
+    <!-- =============================== Graph =============================== -->
+    <section id="p-gr" class="card hide" role="tabpanel" aria-label="Graph">
+      <div class="row">
+        y₁=<input class="f" id="f1" value="sin(x)" aria-label="First function">
+        y₂=<input class="f" id="f2" value="x^2/5" aria-label="Second function">
+        y₃=<input class="f" id="f3" aria-label="Third function">
+      </div>
+
+      <canvas id="cv" width="700" height="320"></canvas>
+
+      <div class="row">
+        <button class="btn g" type="button" data-action="zoom" data-value="0.7">Zoom +</button>
+        <button class="btn g" type="button" data-action="zoom" data-value="1.4">Zoom −</button>
+        <button class="btn g" type="button" data-action="pan" data-value="-1">←</button>
+        <button class="btn g" type="button" data-action="pan" data-value="1">→</button>
+        <button class="btn" type="button" data-action="draw">Plot</button>
+      </div>
+
+      <small class="mu">The graph is drawn in radians. Drag to pan, use the buttons to zoom.</small>
+    </section>
+
+    <!-- ============================= Statistics ============================ -->
+    <section id="p-st" class="card hide" role="tabpanel" aria-label="Statistics">
+      <label class="row" for="sx">x values (separated by commas or spaces):</label>
+      <textarea id="sx">12, 15, 18, 22, 25, 30</textarea>
+
+      <label class="row" for="sy">y values (optional, used for linear regression):</label>
+      <textarea id="sy">20, 24, 29, 35, 41, 47</textarea>
+
+      <button class="btn" type="button" data-action="stats">Calculate</button>
+      <pre class="out" id="sout"></pre>
+    </section>
+
+    <!-- ============================= Equations ============================= -->
+    <section id="p-eq" class="card hide" role="tabpanel" aria-label="Equations">
+      <b>Quadratic: ax² + bx + c = 0</b>
+      <div class="row">
+        <input class="f" id="qa" value="1" size="4" aria-label="a">
+        <input class="f" id="qb" value="-3" size="4" aria-label="b">
+        <input class="f" id="qc" value="2" size="4" aria-label="c">
+        <button class="btn" type="button" data-action="quad">Solve</button>
+      </div>
+      <pre class="out" id="qo"></pre>
+
+      <b>Simultaneous: a₁x + b₁y = c₁ , a₂x + b₂y = c₂</b>
+      <div class="row">
+        <input class="f" id="s1" value="2,1,5" size="9" aria-label="First equation a,b,c">
+        <input class="f" id="s2" value="1,-1,1" size="9" aria-label="Second equation a,b,c">
+        <button class="btn" type="button" data-action="sim">Solve</button>
+      </div>
+      <pre class="out" id="so"></pre>
+
+      <b>Base-N converter</b>
+      <div class="row">
+        <input class="f" id="bn" value="255" size="8" aria-label="Number to convert">
+        <select id="bf" aria-label="Input base">
+          <option value="10">DEC</option>
+          <option value="2">BIN</option>
+          <option value="8">OCT</option>
+          <option value="16">HEX</option>
+        </select>
+        <button class="btn" type="button" data-action="base">Convert</button>
+      </div>
+      <pre class="out" id="bo"></pre>
+    </section>
+
+    <!-- ============================ More tools ============================= -->
+    <section id="p-tl" class="card hide" role="tabpanel" aria-label="More tools">
+      <b>∫ / d/dx / Σ</b>
+      <div class="row">
+        f(x)=<input class="f" id="cf" value="x^2" size="8" aria-label="Function of x">
+        a=<input class="f" id="ca" value="0" size="3" aria-label="Lower bound">
+        b=<input class="f" id="cb" value="3" size="3" aria-label="Upper bound">
+        <button class="btn" type="button" data-action="integ">∫ a→b</button>
+        <button class="btn" type="button" data-action="deriv">d/dx at a</button>
+        <button class="btn" type="button" data-action="sigma">Σ a→b</button>
+      </div>
+      <pre class="out" id="co"></pre>
+
+      <b>Table mode</b>
+      <div class="row">
+        f(x)=<input class="f" id="tf" value="x^2+1" size="8" aria-label="Function for the table">
+        from<input class="f" id="t0" value="0" size="3" aria-label="Start value">
+        to<input class="f" id="t1" value="5" size="3" aria-label="End value">
+        step<input class="f" id="ts" value="1" size="3" aria-label="Step size">
+        <button class="btn" type="button" data-action="table">Table</button>
+      </div>
+      <div id="tout"></div>
+
+      <b>Cubic / quartic (any polynomial)</b>
+      <div class="row">
+        Coefficients (highest power first):
+        <input class="f" id="pc" value="1 -6 11 -6" aria-label="Polynomial coefficients">
+        <button class="btn" type="button" data-action="roots">Solve</button>
+      </div>
+      <pre class="out" id="po"></pre>
+
+      <b>Complex numbers (a,b means a + bi)</b>
+      <div class="row">
+        <input class="f" id="z1" value="3,4" size="6" aria-label="First complex number">
+        <input class="f" id="z2" value="1,-2" size="6" aria-label="Second complex number">
+        <button class="btn g" type="button" data-action="complex" data-value="+">+</button>
+        <button class="btn g" type="button" data-action="complex" data-value="−">−</button>
+        <button class="btn g" type="button" data-action="complex" data-value="×">×</button>
+        <button class="btn g" type="button" data-action="complex" data-value="÷">÷</button>
+      </div>
+      <pre class="out" id="zo"></pre>
+
+      <b>Vectors</b>
+      <div class="row">
+        <input class="f" id="v1" value="1,2,3" size="8" aria-label="First vector">
+        <input class="f" id="v2" value="4,5,6" size="8" aria-label="Second vector">
+        <button class="btn" type="button" data-action="vec">Dot / Cross / Angle</button>
+      </div>
+      <pre class="out" id="vo"></pre>
+
+      <b>Unit conversion</b>
+      <div class="row">
+        <input class="f" id="uv" value="1" size="5" aria-label="Value to convert">
+        <select id="uf" aria-label="From unit"></select>
+        →
+        <select id="ut" aria-label="To unit"></select>
+        <button class="btn" type="button" data-action="unit">Convert</button>
+      </div>
+      <pre class="out" id="uo"></pre>
+
+      <b>Physical constants</b>
+      <small class="mu">(tap a constant to insert its value in the calculator)</small>
+      <div class="chips" id="cn"></div>
+    </section>
+
+    <!-- ============================== Study help =========================== -->
+    <section id="p-ai" class="card hide" role="tabpanel" aria-label="Study helper">
+      <div class="chips" id="chips"></div>
+
+      <div class="chat" id="chat" aria-live="polite">
+        <div class="m a">Hi! I&rsquo;m the built-in study helper. Ask how to use any mode of this calculator &mdash; matrices, statistics, DEG vs RAD, quadratics, graphs, calculus &mdash; and I&rsquo;ll explain it step by step. Everything here runs offline.</div>
+      </div>
+
+      <div class="row">
+        <input class="f grow" id="q" placeholder="Ask a question about the calculator..." aria-label="Your question">
+        <button class="btn" id="send" type="button">Send</button>
+      </div>
+
+      <small class="mu" id="aiNote">The helper answers from a built-in knowledge base. No data leaves your device.</small>
+    </section>
+  </div>
+
+  <noscript>
+    <p class="noscript">Calcio needs JavaScript enabled to run calculations.</p>
+  </noscript>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
