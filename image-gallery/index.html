@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Image Gallery - a responsive, filterable photo gallery with search, favourites, dark mode and a lightbox. Built as part of the CodeAlpha frontend internship.">
+  <meta name="theme-color" content="#7952b3">
+  <title>Image Gallery | CodeAlpha Internship</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#gallery">Skip to gallery</a>
+
+  <header class="hero">
+    <h1>IMAGE <span>GALLERY</span></h1>
+    <p class="hero-sub">A curated walk through India &mdash; filter, search and save the photos you love.</p>
+  </header>
+
+  <!-- Search, category filters, shuffle, favourites and theme switch -->
+  <div class="top-nav-bar">
+    <div class="search-section">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search photos..."
+        aria-label="Search photos by title or category"
+        autocomplete="off"
+      >
+    </div>
+
+    <nav class="toolbar" id="filters" aria-label="Gallery categories"></nav>
+
+    <div class="action-buttons">
+      <button class="control-btn" id="shuffleBtn" type="button" aria-label="Shuffle the photos">🔀 Shuffle</button>
+      <button class="control-btn" id="favFilterBtn" type="button" aria-pressed="false">❤️ Favs</button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Toggle dark / light mode">🌙</button>
+    </div>
+  </div>
+
+  <p id="status" role="status" aria-live="polite">Preparing your gallery...</p>
+
+  <main class="gallery" id="gallery"></main>
+
+  <!-- Lightbox: details, source link and download -->
+  <div class="modal-overlay" id="imageModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modalClose" type="button" aria-label="Close image details">&times;</button>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="">
+      </div>
+      <div class="modal-body">
+        <span class="modal-category" id="modalCategory"></span>
+        <h2 id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-actions">
+          <a id="modalSourceLink" class="modal-link" href="#" target="_blank" rel="noopener noreferrer">View image source ↗</a>
+          <a id="modalDownloadBtn" class="download-btn" href="#" download="gallery-image.jpg">📥 Download image</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Photos are loaded on demand from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> and remain under their respective licences.</p>
+  </footer>
+
+  <noscript>
+    <p class="noscript">This gallery needs JavaScript enabled to fetch photos and power the filters.</p>
+  </noscript>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
