@@ -1,0 +1,17 @@
+{
+  "name": "codealpha-intern",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend internship projects: an image gallery and a scientific calculator, built with vanilla HTML, CSS and JavaScript.",
+  "scripts": {
+    "test": "node tests/test-calculator.js && node tests/test-gallery.js",
+    "test:calculator": "node tests/test-calculator.js",
+    "test:gallery": "node tests/test-gallery.js",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "jsdom": "^22.1.0"
+  },
+  "author": "Harshitha Thummala",
+  "license": "MIT"
+}
