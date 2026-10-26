@@ -6,7 +6,7 @@ A collection of frontend projects built during my **CodeAlpha** internship. Each
 |---|---------|--------------|-------|
 | 01 | [Image Gallery](./image-gallery) | A responsive photo gallery with category filters, live search, favourites, shuffle, dark mode and a lightbox. Photos are fetched on demand from Wikimedia Commons. | HTML · CSS · Vanilla JS |
 | 02 | [Calcio Calculator](./calculator) | A scientific calculator with matrices, graphing, statistics, equations, calculus tools, unit conversion and an offline study helper. | HTML · CSS · Vanilla JS |
-| 03 | [Portfolio](./portfolio) | A single-page personal portfolio: hero, about, five project write-ups, skills, education and contact. | HTML · CSS · Vanilla JS |
+| 03 | [Portfolio](./portfolio) | A single-page personal portfolio: hero with headline numbers, about, skills, four project write-ups, certifications and awards, contact cards, plus a light/dark theme. | HTML · CSS · Vanilla JS |
 | 04 | _Coming soon_ | Fourth internship task | — |
 
 ## Repository layout
@@ -60,10 +60,10 @@ The tests drive the real pages through [jsdom](https://github.com/jsdom/jsdom) �
 
 ```bash
 npm install     # installs jsdom
-npm test        # 31 calculator + 25 gallery + 22 portfolio checks
+npm test        # 31 calculator + 25 gallery + 37 portfolio checks
 ```
 
-Current status: **78 checks passing, 0 failing**.
+Current status: **93 checks passing, 0 failing**.
 
 ## What these projects demonstrate
 
@@ -72,13 +72,14 @@ Current status: **78 checks passing, 0 failing**.
 - State management with `localStorage`, debounced input, and keyboard-accessible dialogs.
 - A hand-written expression parser/evaluator with an allowlist so only maths functions and declared variables can run.
 - Accessibility basics: semantic landmarks, ARIA labels and live regions, visible focus styles, `prefers-reduced-motion` support.
+- A theme that is applied before first paint, so there is no flash of the wrong colour scheme.
 - Automated smoke tests that run in CI-friendly Node without a browser.
 
 ## Roadmap
 
 - [x] Task 01 — Image gallery
 - [x] Task 02 — Scientific calculator
-- [x] Task 03 — Personal portfolio (fill in the three `TODO` placeholders before publishing)
+- [x] Task 03 — Personal portfolio
 - [ ] Task 04 — to be added
 
 ## Author
