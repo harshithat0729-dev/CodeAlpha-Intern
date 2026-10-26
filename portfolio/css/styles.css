@@ -550,3 +550,19 @@ ul { list-style: none; margin: 0; padding: 0; }
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+/* ------------------------------------------------------------------
+   Project code links
+   ------------------------------------------------------------------ */
+
+.project-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
