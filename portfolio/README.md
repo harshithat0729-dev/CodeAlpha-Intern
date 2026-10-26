@@ -1,35 +1,36 @@
 # Personal Portfolio
 
-A single-page portfolio built with plain HTML, CSS and JavaScript for the **CodeAlpha** frontend internship (Task 03).
+A single-page portfolio for **Harshitha Thummala** — BSc. Artificial Intelligence student and Python / web developer. Built with plain HTML, CSS and JavaScript for the **CodeAlpha** frontend internship (Task 03).
 
 **[Open the portfolio](./index.html)**
 
-## What is in it
+## What is on the page
 
-- **Hero** — who I am, what I build, and the two links that matter (work, GitHub).
-- **About** — the way I approach projects, in my own words.
-- **Selected work** — TrustLens, Calcio, Image Gallery, Python mini projects and DSA notes, each with a short honest description, the tech used and a link to the code.
-- **Skills** — grouped by languages, backend, frontend and practice.
-- **Education** — a timeline with one entry.
-- **Contact** — email, GitHub, and a slot for LinkedIn.
+| Section | Content |
+|---|---|
+| Hero | Name, role, one-line summary and three headline numbers (30+ Python projects, 5+ websites, 8.68 CGPA) |
+| About | Background, what I have built so far, and what I am looking for — plus a facts panel with degree, college, year, CGPA and focus areas |
+| Skills | Four groups: Programming, Web Development, AI & Data, Tools & Platforms |
+| Projects | Lab Tracker, Calcio (calculator with AI tutor), Python AI Chatbot, Scam Message Detector — with a note on the other 30+ mini projects |
+| Achievements | Certifications (Kaggle Python, Microsoft Python fundamentals, Web Blitz) and awards, plus the languages I speak |
+| Contact | Email, phone and LinkedIn cards |
+| Footer | Copyright with an auto-updating year |
 
-## Before you publish it — three placeholders to fill
+## Features
 
-I deliberately left anything I could not verify as a clearly marked placeholder rather than inventing it. Open `index.html` and search for `TODO`:
+- **Light and dark theme.** Follows `prefers-color-scheme` on the first visit, then remembers the visitor's choice in `localStorage`. An inline script in `<head>` applies the theme before first paint, so the page never flashes the wrong colours.
+- **Sticky navbar** that gains a shadow once you scroll, with the active link following the section in view (`IntersectionObserver`).
+- **Mobile menu** with `aria-expanded` kept in sync, closed by `Escape`, by tapping a link, or by resizing back to desktop.
+- **Reveal-on-scroll** for each block, applied once per element and then unobserved. Skipped entirely when the visitor prefers reduced motion.
+- **No frameworks, no build step.** Three files, zero dependencies; the only network request is the Google Font.
 
-1. **Education** (in the `#education` section) — replace the degree, college, city and graduation year.
-2. **LinkedIn** (in the `#contact` section) — add your profile URL and uncomment that `<a>` tag.
-3. **Email** — the page currently uses `harshithat0729@gmail.com`. Change it if you would rather use another address, or remove the `mailto:` link if you do not want it public.
+## Accessibility
 
-Everything else is content taken from the repositories: TrustLens, CodeAlpha-Intern (Calcio and Image Gallery), Python-projects and DSA.
-
-## Design decisions
-
-- **One accent colour, one type scale.** The page should read like a document, not a dashboard.
-- **No frameworks and no build step.** The whole site is three files and loads instantly; that is itself part of the message.
-- **Real states, not screenshots.** Every project card links to working code instead of an image.
-- **Accessible by default.** Skip link, landmark elements, `aria-expanded` on the mobile menu, visible focus styles, and `prefers-reduced-motion` support.
-- **JavaScript is optional.** Without it the page still renders and all links still work; only the mobile menu and the copyright year need it.
+- Skip link, `<main>` landmark, semantic `header` / `nav` / `section` / `footer` structure.
+- `aria-pressed` on the theme toggle and `aria-expanded` / `aria-label` on the menu button.
+- Visible focus outlines on every interactive element.
+- Every external link uses `rel="noopener noreferrer"`.
+- Colour tokens are defined once per theme, so contrast is easy to audit and adjust.
 
 ## Project structure
 
@@ -37,9 +38,9 @@ Everything else is content taken from the repositories: TrustLens, CodeAlpha-Int
 portfolio/
 ├── index.html          # all content and structure
 ├── css/
-│   └── styles.css      # design tokens, layout, responsive rules
+│   └── styles.css      # design tokens, layout, responsive rules, motion
 ├── js/
-│   └── main.js         # mobile nav toggle + current year
+│   └── main.js         # theme, menu, scroll spy, reveal, footer year
 └── README.md
 ```
 
@@ -50,13 +51,26 @@ portfolio/
 npm run serve        # then open http://localhost:8000/portfolio/
 ```
 
-Or open `index.html` directly — there is no build step and nothing to install.
+Or just open `index.html` in a browser — there is nothing to install or compile.
+
+## Updating the content
+
+Everything lives in `index.html`, grouped by section comments:
+
+- **Numbers in the hero** (`.hero-stats`) — project counts and CGPA.
+- **Facts panel** (`.facts`) — degree, college, year, CGPA, focus.
+- **Skills** (`#skills .cards`) — each card is one group with a `.chips` list.
+- **Projects** (`#projects .projects`) — copy an `<article class="project">` block and edit the tag, title, description and chips.
+- **Achievements** (`#achievements .timeline`) — add `<li><b>Title</b><span>Detail</span></li>`.
+- **Contact** (`.contact-cards`) — the email, phone and LinkedIn links.
+
+Two things worth a look before this goes public: the phone number in the contact section is visible to anyone who opens the page (remove the `tel:` card if you would rather not publish it), and the projects currently have no links — add a repository or live URL inside each `.project` block when it is ready.
 
 ## Publishing with GitHub Pages
 
 1. Push the repository (already done).
-2. In GitHub: **Settings → Pages → Source: Deploy from a branch**, branch `main`, folder `/` — or `/portfolio` if you move this folder to its own repository.
-3. The site goes live at `https://harshithat0729-dev.github.io/CodeAlpha-Intern/portfolio/`.
+2. **Settings → Pages → Source: Deploy from a branch**, branch `main`, folder `/` — or move this folder into its own repository and point Pages at it.
+3. The site then lives at `https://harshithat0729-dev.github.io/CodeAlpha-Intern/portfolio/`.
 
 ## Testing
 
@@ -64,10 +78,10 @@ Or open `index.html` directly — there is no build step and nothing to install.
 npm run test:portfolio
 ```
 
-The check boots the page in jsdom and asserts that the hero, five project cards, four skill groups, education timeline and contact links all render, that every external link has `rel="noopener noreferrer"`, and that the mobile nav toggles `aria-expanded` correctly.
+37 checks in jsdom: page title, hero and section structure, all four project cards, the skill and contact blocks, `rel` safety on external links, the theme toggle (flip + persist + `aria-pressed`), the mobile menu (open, `Escape`, close on link click), the reveal fallback when `IntersectionObserver` is unavailable, and the footer year.
 
 ## Possible next steps
 
-- A dark theme toggle, sharing the accent colour token.
-- A short writing section, if I start publishing notes.
-- A `resume.pdf` download button once the résumé is final.
+- Add repository or live links to each project card.
+- A `resume.pdf` download button in the hero.
+- A short "writing" section if I start publishing notes.
