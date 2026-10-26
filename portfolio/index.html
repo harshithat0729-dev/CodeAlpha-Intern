@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Harshitha Thummala - Python and JavaScript developer building careful, useful tools.">
+  <meta name="theme-color" content="#2f5bea">
+  <title>Harshitha Thummala | Portfolio</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Harshitha Thummala</a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== Hero ============================== -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">Python · JavaScript · FastAPI · React</p>
+
+        <h1>
+          I build small, careful products &mdash;<br>
+          tools that are honest about what they can and cannot do.
+        </h1>
+
+        <p class="lede">
+          I&rsquo;m Harshitha, a developer from India. I spend my time on two things:
+          interfaces that stay out of your way, and systems that explain their own
+          reasoning instead of guessing. Right now I&rsquo;m working through a
+          frontend internship at CodeAlpha and building TrustLens, a multilingual
+          trust &amp; safety assistant.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">See the work</a>
+          <a class="btn ghost" href="https://github.com/harshithat0729-dev" target="_blank" rel="noopener noreferrer">
+            GitHub profile ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== About ============================= -->
+    <section class="section" id="about">
+      <div class="wrap narrow">
+        <h2>About</h2>
+
+        <p>
+          I like problems where correctness is visible. A calculator either gives the
+          right answer or it does not; a gallery either loads the photo or shows an
+          honest placeholder. That constraint is what keeps me interested &mdash; it
+          forces the small decisions (error states, keyboard support, timeouts) that
+          make software feel finished.
+        </p>
+
+        <p>
+          Most of my work is plain Python and plain JavaScript, with FastAPI on the
+          backend when a project needs one. I&rsquo;m currently deepening my
+          data-structures and algorithms practice in Python, one topic a week, and
+          documenting it as I go.
+        </p>
+
+        <ul class="facts">
+          <li><span>Currently</span> Frontend intern at CodeAlpha</li>
+          <li><span>Building</span> TrustLens &mdash; a digital trust &amp; safety assistant</li>
+          <li><span>Learning</span> DSA in Python, one topic per week</li>
+          <li><span>Based in</span> India</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== Work ============================== -->
+    <section class="section alt" id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+        <p class="section-lede">Five projects, each one built end to end &mdash; from the data layer to the empty state.</p>
+
+        <div class="cards">
+          <article class="card featured">
+            <div class="card-head">
+              <h3>TrustLens</h3>
+              <span class="badge">In progress</span>
+            </div>
+            <p>
+              A multimodal, multilingual digital trust &amp; safety assistant. Paste a
+              link, message, image or claim and it returns an evidence-based read-out in
+              your own language &mdash; and says &ldquo;inconclusive&rdquo; when the
+              evidence is not there.
+            </p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>React</li>
+              <li>Vite PWA</li>
+              <li>pytest</li>
+            </ul>
+            <a class="card-link" href="https://github.com/harshithat0729-dev/trustlens" target="_blank" rel="noopener noreferrer">
+              View repository ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>Calcio &mdash; scientific calculator</h3>
+            <p>
+              A browser calculator with matrices, graphing, statistics, equations,
+              calculus tools and unit conversion. Everything runs offline: a hand-written
+              expression engine validates every identifier before it evaluates.
+            </p>
+            <ul class="tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Canvas</li>
+            </ul>
+            <a class="card-link" href="https://github.com/harshithat0729-dev/CodeAlpha-Intern/tree/main/calculator" target="_blank" rel="noopener noreferrer">
+              View project ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>Image Gallery</h3>
+            <p>
+              A responsive gallery of 32 curated photos with category filters, debounced
+              search, favourites, dark mode and a keyboard-accessible lightbox. Photos
+              load on demand from Wikimedia Commons, with caching and a retry state.
+            </p>
+            <ul class="tags">
+              <li>HTML</li>
+              <li>CSS Grid</li>
+              <li>JavaScript</li>
+              <li>Fetch API</li>
+            </ul>
+            <a class="card-link" href="https://github.com/harshithat0729-dev/CodeAlpha-Intern/tree/main/image-gallery" target="_blank" rel="noopener noreferrer">
+              View project ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>Python mini projects</h3>
+            <p>
+              Thirty self-contained Python programs &mdash; a library manager, expense
+              tracker, scam-message detector, typing speed tester, file organiser and
+              more &mdash; written to practise clean input handling and readable structure.
+            </p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>CLI</li>
+              <li>File I/O</li>
+            </ul>
+            <a class="card-link" href="https://github.com/harshithat0729-dev/Python-projects" target="_blank" rel="noopener noreferrer">
+              View repository ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>DSA in Python</h3>
+            <p>
+              A running notebook of data-structures and algorithms practice: arrays,
+              searching, sorting, strings, linked lists, stacks, queues, trees, graphs and
+              dynamic programming, with the reasoning behind each solution.
+            </p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>Algorithms</li>
+              <li>Notes</li>
+            </ul>
+            <a class="card-link" href="https://github.com/harshithat0729-dev/DSA" target="_blank" rel="noopener noreferrer">
+              View repository ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= Skills ============================= -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <h2>Tools I reach for</h2>
+
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li>
+              <li>JavaScript (ES2020+)</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>SQL (basics)</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <ul>
+              <li>FastAPI</li>
+              <li>REST design</li>
+              <li>pytest</li>
+              <li>Pydantic schemas</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <ul>
+              <li>Semantic HTML &amp; ARIA</li>
+              <li>CSS Grid &amp; Flexbox</li>
+              <li>Canvas</li>
+              <li>React &amp; Vite</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Practice</h3>
+            <ul>
+              <li>Git &amp; GitHub</li>
+              <li>Accessibility first</li>
+              <li>Writing tests</li>
+              <li>Documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== Education =========================== -->
+    <section class="section alt" id="education">
+      <div class="wrap narrow">
+        <h2>Education</h2>
+
+        <!--
+          TODO (Harshitha): replace the three placeholder lines below with your real
+          degree, college, location and graduation year. Nothing else on this page
+          needs editing.
+        -->
+        <div class="timeline">
+          <div class="timeline-item">
+            <p class="timeline-when">Add your graduation year</p>
+            <h3>Degree &mdash; replace with your course</h3>
+            <p>College name, city &middot; replace with your institution</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Contact ============================ -->
+    <section class="section" id="contact">
+      <div class="wrap narrow">
+        <h2>Get in touch</h2>
+        <p>
+          The fastest way to reach me is email. I&rsquo;m happy to talk about frontend
+          work, Python backends, or anything involving trust and safety.
+        </p>
+
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:harshithat0729@gmail.com">harshithat0729@gmail.com</a>
+          <a class="btn ghost" href="https://github.com/harshithat0729-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <!-- TODO (Harshitha): add your LinkedIn URL and uncomment this link.
+          <a class="btn ghost" href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year">2026</span> Harshitha Thummala</p>
+      <p>Built with plain HTML, CSS and JavaScript &mdash; no frameworks, no build step.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
