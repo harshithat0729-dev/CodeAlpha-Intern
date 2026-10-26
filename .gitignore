@@ -1,0 +1,15 @@
+# Dependencies (only needed to run the tests)
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
