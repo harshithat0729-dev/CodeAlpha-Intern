@@ -57,12 +57,24 @@ check("fact rows", doc.querySelectorAll(".facts .fact").length, 5);
 check("skill cards", doc.querySelectorAll("#skills .card").length, 4);
 check("project cards", doc.querySelectorAll("#projects .project").length, 4);
 check("project titles", [...doc.querySelectorAll("#projects .project h3")].map((h) => h.textContent).join(" | "),
-  "Lab Tracker Website | Calcio — Scientific Calculator with AI Tutor | Python AI Chatbot | Scam Message Detector");
+  "Lab Tracker Website | Calcio — Scientific Calculator with Study Helper | Python AI Chatbot | Scam Message Detector");
+check("project code links", doc.querySelectorAll("#projects .project-link").length, 3);
+check(
+  "project links point at GitHub",
+  [...doc.querySelectorAll("#projects .project-link")].every((a) => a.href.startsWith("https://github.com/harshithat0729-dev/")),
+  true
+);
+check(
+  "project links use noopener",
+  [...doc.querySelectorAll("#projects .project-link")].every((a) => a.getAttribute("rel") === "noopener noreferrer"),
+  true
+);
 check("certifications", doc.querySelectorAll("#achievements .split ul.timeline").length, 2);
 check("language chips", doc.querySelectorAll(".lang-row .chips li").length, 3);
-check("contact cards", doc.querySelectorAll(".contact-card").length, 3);
+check("contact cards", doc.querySelectorAll(".contact-card").length, 2);
+check("phone number is not published", doc.querySelectorAll('a[href^="tel:"]').length, 0);
+check("linkedin card present", Boolean(doc.querySelector('.contact-card[href*="linkedin.com"]')), true);
 check("email link", doc.querySelector('a[href^="mailto:"]').getAttribute("href"), "mailto:harshithat0729@gmail.com");
-check("phone link", doc.querySelector('a[href^="tel:"]').getAttribute("href"), "tel:+919581157958");
 
 /* --- external links are safe -------------------------------------- */
 const external = [...doc.querySelectorAll('a[href^="http"]')];
