@@ -11,9 +11,9 @@ A single-page portfolio for **Harshitha Thummala** — BSc. Artificial Intellige
 | Hero | Name, role, one-line summary and three headline numbers (30+ Python projects, 5+ websites, 8.68 CGPA) |
 | About | Background, what I have built so far, and what I am looking for — plus a facts panel with degree, college, year, CGPA and focus areas |
 | Skills | Four groups: Programming, Web Development, AI & Data, Tools & Platforms |
-| Projects | Lab Tracker, Calcio (calculator with AI tutor), Python AI Chatbot, Scam Message Detector — with a note on the other 30+ mini projects |
+| Projects | Lab Tracker, Calcio (calculator with a study helper), Python AI Chatbot, Scam Message Detector — three of them linked to their code, plus a note on the other 30+ mini projects |
 | Achievements | Certifications (Kaggle Python, Microsoft Python fundamentals, Web Blitz) and awards, plus the languages I speak |
-| Contact | Email, phone and LinkedIn cards |
+| Contact | Email and LinkedIn cards |
 | Footer | Copyright with an auto-updating year |
 
 ## Features
@@ -62,9 +62,9 @@ Everything lives in `index.html`, grouped by section comments:
 - **Skills** (`#skills .cards`) — each card is one group with a `.chips` list.
 - **Projects** (`#projects .projects`) — copy an `<article class="project">` block and edit the tag, title, description and chips.
 - **Achievements** (`#achievements .timeline`) — add `<li><b>Title</b><span>Detail</span></li>`.
-- **Contact** (`.contact-cards`) — the email, phone and LinkedIn links.
+- **Contact** (`.contact-cards`) — the email and LinkedIn links.
 
-Two things worth a look before this goes public: the phone number in the contact section is visible to anyone who opens the page (remove the `tel:` card if you would rather not publish it), and the projects currently have no links — add a repository or live URL inside each `.project` block when it is ready.
+Two notes before this goes public: the phone number was removed from the contact section so it is not published, and **Lab Tracker** is the one project without a link because it has no public repository yet — add one inside its `.project` block when you push it.
 
 ## Publishing with GitHub Pages
 
@@ -78,10 +78,10 @@ Two things worth a look before this goes public: the phone number in the contact
 npm run test:portfolio
 ```
 
-37 checks in jsdom: page title, hero and section structure, all four project cards, the skill and contact blocks, `rel` safety on external links, the theme toggle (flip + persist + `aria-pressed`), the mobile menu (open, `Escape`, close on link click), the reveal fallback when `IntersectionObserver` is unavailable, and the footer year.
+41 checks in jsdom: page title, hero and section structure, all four project cards and their code links, the skill and contact blocks, that no phone number is published, `rel` safety on external links, the theme toggle (flip + persist + `aria-pressed`), the mobile menu (open, `Escape`, close on link click), the reveal fallback when `IntersectionObserver` is unavailable, and the footer year.
 
 ## Possible next steps
 
-- Add repository or live links to each project card.
+- Add a repository link for Lab Tracker once it is public.
 - A `resume.pdf` download button in the hero.
 - A short "writing" section if I start publishing notes.
