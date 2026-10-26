@@ -6,7 +6,7 @@ A collection of frontend projects built during my **CodeAlpha** internship. Each
 |---|---------|--------------|-------|
 | 01 | [Image Gallery](./image-gallery) | A responsive photo gallery with category filters, live search, favourites, shuffle, dark mode and a lightbox. Photos are fetched on demand from Wikimedia Commons. | HTML · CSS · Vanilla JS |
 | 02 | [Calcio Calculator](./calculator) | A scientific calculator with matrices, graphing, statistics, equations, calculus tools, unit conversion and an offline study helper. | HTML · CSS · Vanilla JS |
-| 03 | _Coming soon_ | Third internship task | — |
+| 03 | [Portfolio](./portfolio) | A single-page personal portfolio: hero, about, five project write-ups, skills, education and contact. | HTML · CSS · Vanilla JS |
 | 04 | _Coming soon_ | Fourth internship task | — |
 
 ## Repository layout
@@ -23,6 +23,11 @@ codealpha-intern/
 │   ├── index.html
 │   ├── css/styles.css
 │   ├── js/app.js           # expression engine + all calculator modes
+│   └── README.md
+├── portfolio/              # Task 03
+│   ├── index.html
+│   ├── css/styles.css
+│   ├── js/main.js          # mobile nav + current year
 │   └── README.md
 ├── tests/                  # jsdom smoke tests for both projects
 ├── package.json
@@ -45,7 +50,7 @@ cd CodeAlpha-Intern
 npm run serve          # python3 -m http.server 8000
 ```
 
-Then visit <http://localhost:8000/image-gallery/> or <http://localhost:8000/calculator/>.
+Then visit <http://localhost:8000/image-gallery/>, <http://localhost:8000/calculator/> or <http://localhost:8000/portfolio/>.
 
 Serving over HTTP is recommended for the gallery because some browsers restrict `fetch()` calls from `file://` pages.
 
@@ -55,10 +60,10 @@ The tests drive the real pages through [jsdom](https://github.com/jsdom/jsdom) �
 
 ```bash
 npm install     # installs jsdom
-npm test        # 31 calculator checks + 25 gallery checks
+npm test        # 31 calculator + 25 gallery + 22 portfolio checks
 ```
 
-Current status: **56 checks passing, 0 failing**.
+Current status: **78 checks passing, 0 failing**.
 
 ## What these projects demonstrate
 
@@ -73,7 +78,7 @@ Current status: **56 checks passing, 0 failing**.
 
 - [x] Task 01 — Image gallery
 - [x] Task 02 — Scientific calculator
-- [ ] Task 03 — to be added
+- [x] Task 03 — Personal portfolio (fill in the three `TODO` placeholders before publishing)
 - [ ] Task 04 — to be added
 
 ## Author
