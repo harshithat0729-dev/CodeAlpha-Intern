@@ -1,290 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Harshitha Thummala - Python and JavaScript developer building careful, useful tools.">
-  <meta name="theme-color" content="#2f5bea">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harshitha Thummala | Portfolio</title>
+  <meta name="description" content="Portfolio of Harshitha Thummala — BSc. Artificial Intelligence student, Python and web developer." />
+  <meta name="theme-color" content="#2f5bd7" />
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!--
+    Apply the saved (or preferred) theme before the first paint so the page
+    never flashes the wrong colour scheme. Kept inline and tiny on purpose.
+  -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved
+          ? saved === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top">Harshitha Thummala</a>
+  <!-- ===== NAVBAR ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Portfolio</a>
 
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">
-        <span class="nav-toggle-bar"></span>
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-
-      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <nav class="nav-links" id="navLinks">
         <a href="#about">About</a>
-        <a href="#work">Work</a>
         <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle theme">
+          <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============================== Hero ============================== -->
-    <section class="hero" id="top">
-      <div class="wrap">
-        <p class="eyebrow">Python · JavaScript · FastAPI · React</p>
 
-        <h1>
-          I build small, careful products &mdash;<br>
-          tools that are honest about what they can and cannot do.
-        </h1>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">Hello, I'm</p>
+      <h1 class="reveal">Harshitha Thummala</h1>
+      <h2 class="role reveal">BSc. Artificial Intelligence Student</h2>
+      <p class="lede reveal">
+        A second-year BSc. Artificial Intelligence student building clean,
+        practical web apps with <strong>Python</strong> and modern
+        <strong>web tools</strong>.
+      </p>
 
-        <p class="lede">
-          I&rsquo;m Harshitha, a developer from India. I spend my time on two things:
-          interfaces that stay out of your way, and systems that explain their own
-          reasoning instead of guessing. Right now I&rsquo;m working through a
-          frontend internship at CodeAlpha and building TrustLens, a multilingual
-          trust &amp; safety assistant.
-        </p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="#contact" class="btn ghost">Get in Touch</a>
+      </div>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="#work">See the work</a>
-          <a class="btn ghost" href="https://github.com/harshithat0729-dev" target="_blank" rel="noopener noreferrer">
-            GitHub profile ↗
-          </a>
+      <div class="hero-stats reveal">
+        <div class="stat"><b>30+</b><span>Python Projects</span></div>
+        <div class="stat"><b>5+</b><span>Websites Built</span></div>
+        <div class="stat"><b>8.68</b><span>Current CGPA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-tag reveal">About</p>
+      <h2 class="section-title reveal">A little about me</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a second-year <strong>BSc. Artificial Intelligence</strong> student at
+            SPACES Degree College with a strong interest in how intelligent systems
+            can make everyday tools smarter and simpler.
+          </p>
+          <p>
+            Over the past year I've built <strong>5+ responsive websites</strong> and
+            <strong>30+ Python mini projects</strong>, and completed certified courses
+            in Python. I enjoy turning ideas into working products — from attendance
+            trackers to an AI-tutor calculator.
+          </p>
+          <p>
+            Right now I'm looking for an internship in <strong>AI, Python, or Web
+            Development</strong> where I can learn fast, contribute, and grow.
+          </p>
+        </div>
+
+        <aside class="facts reveal">
+          <div class="fact"><span>Degree</span><b>BSc. Artificial Intelligence</b></div>
+          <div class="fact"><span>College</span><b>SPACES Degree College</b></div>
+          <div class="fact"><span>Year</span><b>2nd Year · 2025–2028</b></div>
+          <div class="fact"><span>CGPA</span><b>8.68</b></div>
+          <div class="fact"><span>Focus</span><b>AI · Python · Web</b></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section alt" id="skills">
+    <div class="container">
+      <p class="section-tag reveal">Skills</p>
+      <h2 class="section-title reveal">What I work with</h2>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-icon">&lt;/&gt;</div>
+          <h3>Programming</h3>
+          <ul class="chips">
+            <li>Python</li><li>SQL</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">▤</div>
+          <h3>Web Development</h3>
+          <ul class="chips">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">✦</div>
+          <h3>AI &amp; Data</h3>
+          <ul class="chips">
+            <li>NumPy</li><li>Pandas</li><li>Prompt Engineering</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">⚙</div>
+          <h3>Tools &amp; Platforms</h3>
+          <ul class="chips">
+            <li>GitHub</li><li>VS Code</li><li>Claude</li><li>Sarvam AI</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <p class="section-tag reveal">Projects</p>
+      <h2 class="section-title reveal">Things I've built</h2>
+
+      <div class="projects">
+        <article class="project reveal">
+          <div class="project-top">
+            <span class="tag">Web Development</span>
+          </div>
+          <h3>Lab Tracker Website</h3>
+          <p>A website that tracks students' lab attendance with check-in and
+             check-out timings, built for college use.</p>
+          <ul class="chips small"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-top">
+            <span class="tag">Web + AI</span>
+          </div>
+          <h3>Calcio — Scientific Calculator with AI Tutor</h3>
+          <p>A scientific calculator integrated with an AI tutor that helps users
+             understand and solve calculations step by step.</p>
+          <ul class="chips small"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>AI Tools</li></ul>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-top">
+            <span class="tag">Python + AI</span>
+          </div>
+          <h3>Python AI Chatbot</h3>
+          <p>A simple conversational chatbot built in Python that responds to
+             user queries in real time.</p>
+          <ul class="chips small"><li>Python</li><li>AI</li></ul>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-top">
+            <span class="tag">Python + AI</span>
+          </div>
+          <h3>Scam Message Detector</h3>
+          <p>A Python tool that identifies potentially suspicious or scam messages
+             to help users stay safe online.</p>
+          <ul class="chips small"><li>Python</li><li>Logic</li></ul>
+        </article>
+      </div>
+
+      <p class="projects-note reveal">
+        …plus <strong>30+ Python mini projects</strong> including Smart File Organizer,
+        Data Cleaner, Text Analyzer, Weather Prediction System, and Password Strength Analyzer.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section class="section alt" id="achievements">
+    <div class="container">
+      <p class="section-tag reveal">Achievements</p>
+      <h2 class="section-title reveal">Certifications &amp; awards</h2>
+
+      <div class="split">
+        <div class="reveal">
+          <h3 class="split-title">Certifications</h3>
+          <ul class="timeline">
+            <li><b>Kaggle Python Course Certificate</b><span>Python fundamentals</span></li>
+            <li><b>Microsoft Fundamentals &amp; Libraries of Python</b><span>Python libraries &amp; basics</span></li>
+            <li><b>Web Blitz Participation Certificate</b><span>Built a roadmap &amp; career-guidance website</span></li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <h3 class="split-title">Awards</h3>
+          <ul class="timeline">
+            <li><b>1st Place — District Level Essay Writing</b><span>School competition</span></li>
+            <li><b>1st Place — Throwball &amp; Kabaddi</b><span>Team sports</span></li>
+            <li><b>2nd Place — Academics</b><span>School</span></li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- ============================== About ============================= -->
-    <section class="section" id="about">
-      <div class="wrap narrow">
-        <h2>About</h2>
-
-        <p>
-          I like problems where correctness is visible. A calculator either gives the
-          right answer or it does not; a gallery either loads the photo or shows an
-          honest placeholder. That constraint is what keeps me interested &mdash; it
-          forces the small decisions (error states, keyboard support, timeouts) that
-          make software feel finished.
-        </p>
-
-        <p>
-          Most of my work is plain Python and plain JavaScript, with FastAPI on the
-          backend when a project needs one. I&rsquo;m currently deepening my
-          data-structures and algorithms practice in Python, one topic a week, and
-          documenting it as I go.
-        </p>
-
-        <ul class="facts">
-          <li><span>Currently</span> Frontend intern at CodeAlpha</li>
-          <li><span>Building</span> TrustLens &mdash; a digital trust &amp; safety assistant</li>
-          <li><span>Learning</span> DSA in Python, one topic per week</li>
-          <li><span>Based in</span> India</li>
-        </ul>
+      <div class="lang-row reveal">
+        <span>Languages:</span>
+        <ul class="chips"><li>Telugu</li><li>English</li><li>Hindi</li></ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============================== Work ============================== -->
-    <section class="section alt" id="work">
-      <div class="wrap">
-        <h2>Selected work</h2>
-        <p class="section-lede">Five projects, each one built end to end &mdash; from the data layer to the empty state.</p>
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container contact-wrap">
+      <p class="section-tag reveal">Contact</p>
+      <h2 class="section-title reveal">Let's build something together</h2>
+      <p class="contact-lede reveal">Open to internships in AI, Python, and Web Development. Feel free to reach out.</p>
 
-        <div class="cards">
-          <article class="card featured">
-            <div class="card-head">
-              <h3>TrustLens</h3>
-              <span class="badge">In progress</span>
-            </div>
-            <p>
-              A multimodal, multilingual digital trust &amp; safety assistant. Paste a
-              link, message, image or claim and it returns an evidence-based read-out in
-              your own language &mdash; and says &ldquo;inconclusive&rdquo; when the
-              evidence is not there.
-            </p>
-            <ul class="tags">
-              <li>Python</li>
-              <li>FastAPI</li>
-              <li>React</li>
-              <li>Vite PWA</li>
-              <li>pytest</li>
-            </ul>
-            <a class="card-link" href="https://github.com/harshithat0729-dev/trustlens" target="_blank" rel="noopener noreferrer">
-              View repository ↗
-            </a>
-          </article>
-
-          <article class="card">
-            <h3>Calcio &mdash; scientific calculator</h3>
-            <p>
-              A browser calculator with matrices, graphing, statistics, equations,
-              calculus tools and unit conversion. Everything runs offline: a hand-written
-              expression engine validates every identifier before it evaluates.
-            </p>
-            <ul class="tags">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>Canvas</li>
-            </ul>
-            <a class="card-link" href="https://github.com/harshithat0729-dev/CodeAlpha-Intern/tree/main/calculator" target="_blank" rel="noopener noreferrer">
-              View project ↗
-            </a>
-          </article>
-
-          <article class="card">
-            <h3>Image Gallery</h3>
-            <p>
-              A responsive gallery of 32 curated photos with category filters, debounced
-              search, favourites, dark mode and a keyboard-accessible lightbox. Photos
-              load on demand from Wikimedia Commons, with caching and a retry state.
-            </p>
-            <ul class="tags">
-              <li>HTML</li>
-              <li>CSS Grid</li>
-              <li>JavaScript</li>
-              <li>Fetch API</li>
-            </ul>
-            <a class="card-link" href="https://github.com/harshithat0729-dev/CodeAlpha-Intern/tree/main/image-gallery" target="_blank" rel="noopener noreferrer">
-              View project ↗
-            </a>
-          </article>
-
-          <article class="card">
-            <h3>Python mini projects</h3>
-            <p>
-              Thirty self-contained Python programs &mdash; a library manager, expense
-              tracker, scam-message detector, typing speed tester, file organiser and
-              more &mdash; written to practise clean input handling and readable structure.
-            </p>
-            <ul class="tags">
-              <li>Python</li>
-              <li>CLI</li>
-              <li>File I/O</li>
-            </ul>
-            <a class="card-link" href="https://github.com/harshithat0729-dev/Python-projects" target="_blank" rel="noopener noreferrer">
-              View repository ↗
-            </a>
-          </article>
-
-          <article class="card">
-            <h3>DSA in Python</h3>
-            <p>
-              A running notebook of data-structures and algorithms practice: arrays,
-              searching, sorting, strings, linked lists, stacks, queues, trees, graphs and
-              dynamic programming, with the reasoning behind each solution.
-            </p>
-            <ul class="tags">
-              <li>Python</li>
-              <li>Algorithms</li>
-              <li>Notes</li>
-            </ul>
-            <a class="card-link" href="https://github.com/harshithat0729-dev/DSA" target="_blank" rel="noopener noreferrer">
-              View repository ↗
-            </a>
-          </article>
-        </div>
+      <div class="contact-cards">
+        <a class="contact-card reveal" href="mailto:harshithat0729@gmail.com">
+          <span class="cc-label">Email</span>
+          <span class="cc-value">harshithat0729@gmail.com</span>
+        </a>
+        <a class="contact-card reveal" href="tel:+919581157958">
+          <span class="cc-label">Phone</span>
+          <span class="cc-value">+91-9581157958</span>
+        </a>
+        <a class="contact-card reveal" href="https://www.linkedin.com/in/harshitha-thummala-312bb239b" target="_blank" rel="noopener noreferrer">
+          <span class="cc-label">LinkedIn</span>
+          <span class="cc-value">harshitha-thummala</span>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============================= Skills ============================= -->
-    <section class="section" id="skills">
-      <div class="wrap">
-        <h2>Tools I reach for</h2>
-
-        <div class="skills">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <ul>
-              <li>Python</li>
-              <li>JavaScript (ES2020+)</li>
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>SQL (basics)</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Backend</h3>
-            <ul>
-              <li>FastAPI</li>
-              <li>REST design</li>
-              <li>pytest</li>
-              <li>Pydantic schemas</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Frontend</h3>
-            <ul>
-              <li>Semantic HTML &amp; ARIA</li>
-              <li>CSS Grid &amp; Flexbox</li>
-              <li>Canvas</li>
-              <li>React &amp; Vite</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Practice</h3>
-            <ul>
-              <li>Git &amp; GitHub</li>
-              <li>Accessibility first</li>
-              <li>Writing tests</li>
-              <li>Documentation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================== Education =========================== -->
-    <section class="section alt" id="education">
-      <div class="wrap narrow">
-        <h2>Education</h2>
-
-        <!--
-          TODO (Harshitha): replace the three placeholder lines below with your real
-          degree, college, location and graduation year. Nothing else on this page
-          needs editing.
-        -->
-        <div class="timeline">
-          <div class="timeline-item">
-            <p class="timeline-when">Add your graduation year</p>
-            <h3>Degree &mdash; replace with your course</h3>
-            <p>College name, city &middot; replace with your institution</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ Contact ============================ -->
-    <section class="section" id="contact">
-      <div class="wrap narrow">
-        <h2>Get in touch</h2>
-        <p>
-          The fastest way to reach me is email. I&rsquo;m happy to talk about frontend
-          work, Python backends, or anything involving trust and safety.
-        </p>
-
-        <div class="contact-links">
-          <a class="btn primary" href="mailto:harshithat0729@gmail.com">harshithat0729@gmail.com</a>
-          <a class="btn ghost" href="https://github.com/harshithat0729-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <!-- TODO (Harshitha): add your LinkedIn URL and uncomment this link.
-          <a class="btn ghost" href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          -->
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>&copy; <span id="year">2026</span> Harshitha Thummala</p>
-      <p>Built with plain HTML, CSS and JavaScript &mdash; no frameworks, no build step.</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Harshitha Thummala · Built with HTML, CSS &amp; JavaScript</p>
     </div>
   </footer>
 
